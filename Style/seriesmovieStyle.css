@@ -1,0 +1,88 @@
+@import url("variable.css");
+
+.body_video {
+    width: 1075px;
+    height: 605px;
+    background-color: b;
+    margin: auto;
+    margin-top: 18.5px;
+    margin-bottom: 18.5px;
+}
+
+.videoFilm {
+    width: 100%;
+    height: 100%;
+}
+
+.server {
+    padding-left: 10px;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #ccb26b;
+    color: white;
+}
+
+div.titlecomment {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+div.comment form {
+    width: 1055px;
+    height: 400px;
+    background-color: #fff6f6;
+    margin-left: 22px;
+}
+
+.writecomment {
+    height: 50px;
+    width: 100px;
+}
+
+.entercomment {
+    margin-top: 22px;
+    margin-left: 680px;
+}
+
+.userComment {
+    width: 1000px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 22px;
+    font-size: 25px;
+}
+
+.quantity {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 12px 32px 12px 12px;
+}
+
+.arrow-left,
+.arrow-right {
+    width: 64px;
+    height: 64px;
+    margin-right: 24px;
+}
+
+footer {
+    padding: 20px 0px;
+    font-size: 20px;
+    background-image: linear-gradient(45deg, #55a6d1, #a8368e);
+}
+
+footer img {
+    float: left;
+    height: 75px;
+    margin-left: 50px;
+    margin-right: 300px;
+}

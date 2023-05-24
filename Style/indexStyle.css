@@ -28,7 +28,7 @@ ul {
 
 ul.nav li {
     float: left;
-    padding: 15px;
+    padding: 20px 15px;
 }
 
 ul.nav li a {
@@ -54,12 +54,12 @@ div.fSearch form {
 
 input {
     padding: 5px 0;
-    margin-top: 11px;
+    margin-top: 15px;
     border: none;
     outline: none;
 }
 
-input[type="text"] {
+form.fSearch input[type="text"] {
     width: 200px;
     margin-left: 20px;
     border-top-left-radius: 50px;
@@ -67,11 +67,11 @@ input[type="text"] {
     padding-left: 20px;
 }
 
-input[type="button"]:hover {
+form.fSearch input[type="button"]:hover {
     background-color: rgb(124, 124, 124);
 }
 
-input[type="button"] {
+form.fSearch input[type="button"] {
     cursor: pointer;
     padding: 5px 10px;
     border-top-right-radius: 50px;
@@ -80,9 +80,41 @@ input[type="button"] {
     background-color: silver;
 }
 
-input[type="button"]:active {
+form.fSearch input[type="button"]:active {
     background-color: black;
     color: white;
+}
+
+.thongTinDangNhap {
+    float: right;
+    margin-right: 15px;
+    margin-top: 1px;
+}
+.tenDangNhap {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 18px 0px;
+    font-weight: bold;
+}
+
+.thongTinDangNhap > a {
+    text-decoration: none;
+    color: black;
+}
+
+.thongTinDangNhap > a:hover {
+    color: var(--color-background);
+}
+
+.hinhAnhDangNhap {
+    float: right;
+    width: 54px;
+    height: 54px;
+    margin-top: 2px;
+    background-color: var(--color-background);
+    border-radius: 30px;
+    background: url("../Assets/Images/icon/user64.png") no-repeat center center /
+        100% auto;
 }
 
 .container {
@@ -119,6 +151,7 @@ input[type="button"]:active {
     background-color: var(--dark-blue);
 }
 
+/* -------------------------------------------------Content----------------------------------------------------- */
 .content {
     float: right;
     margin-top: 25px;
@@ -132,11 +165,18 @@ input[type="button"]:active {
 .film {
     position: relative;
     display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
     width: 168px;
     height: 216px;
     background-color: #13313d;
     margin-top: 25px;
     margin-left: 25px;
+}
+
+.film:hover {
+    border-radius: 10px;
+    border: medium solid var(--color-background);
 }
 
 .posterFilm img {
@@ -154,6 +194,7 @@ input[type="button"]:active {
     text-align: center;
 }
 
+/* -------------------------------------------------Footer----------------------------------------------------- */
 footer {
     padding: 20px 0px;
     font-size: 20px;

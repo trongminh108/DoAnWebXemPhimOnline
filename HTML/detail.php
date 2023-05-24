@@ -35,7 +35,7 @@
             <div class="top"></div>
             <div class="topnav">
                 <ul class="nav">
-                    <li><a href="TrangChu">Trang Chủ</a></li>
+                    <li><a href="index.php">Trang Chủ</a></li>
                     <li><a href="TheLoai">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
@@ -52,6 +52,15 @@
                         <input type="button" value="Search" />
                     </form>
                 </div>
+                <div class="thongTinDangNhap">
+                    <a href="DangNhap">
+                        <div class="tenDangNhap">
+                            Đăng nhập
+                        </div>
+                        <div class="hinhAnhDangNhap">
+                        </div>
+                    </a>
+                </div>
             </div>
         </header>
         <div class="container">
@@ -64,7 +73,11 @@
                 ?>
                 <div class="thongTinFilm">
                     <div class="hinhAnh"></div>
-                    <div class="thongTin"></div>
+                    <div class="thongTin">
+                        <?php
+                            echo "<a class='xemPhim' href='xemphim_OddMovie.php?id={$row['maphim']}'>Xem phim</a>";
+                        ?>
+                    </div>
                 </div>
 
                 <div class="thongTinFilm moTa">
