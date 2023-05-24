@@ -40,6 +40,11 @@
             <div class="content">
                 <div class="title">Danh sách phim</div>
                 <?php
+                    require_once "../PHP/connect.php";
+                    $query = "SELECT * FROM phim";
+                    $danhsach = $connect->query($query);
+                    $query = "SELECT * FROM phim";
+                    $danhsach = $connect->query($query);
                     if (!$danhsach){
                         die("Không thể thực hiện câu lệnh SQL" . $connect->connect_error);
                         exit();

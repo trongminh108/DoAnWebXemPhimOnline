@@ -8,11 +8,11 @@
 
         <link rel="stylesheet" href="../Style/indexStyle.css" />
         <link rel="stylesheet" href="../Style/detailStyle.css"/>
+        
         <?php
             require_once "../PHP/connect.php";
             $query = "SELECT * FROM phim";
             $danhsach = $connect->query($query);
-            require_once "../PHP/connect.php";
             $maphim = $_GET['id'];
             $query = "SELECT * FROM phim where maphim='{$maphim}'";
             $danhsach = $connect->query($query);
