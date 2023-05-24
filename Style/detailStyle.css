@@ -1,0 +1,37 @@
+@import url("variable.css");
+
+.thongTinFilm {
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 25px;
+    background-color: white;
+    border: thin solid var(--dark-blue);
+    border-radius: 15px;
+}
+
+.hinhAnh {
+    width: 23%;
+    height: 320px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: blue;
+    background-size: cover;
+    float: left;
+}
+
+.thongTin {
+    float: inline-start;
+    width: 70.5%;
+    height: 320px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: wheat;
+}
+
+.moTa {
+    box-sizing: border-box;
+    height: 150px;
+    padding: 10px;
+}

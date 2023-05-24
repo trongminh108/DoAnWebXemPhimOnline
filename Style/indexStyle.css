@@ -1,11 +1,8 @@
+@import url("variable.css");
+
 @font-face {
     font-family: Itim;
     src: url(../Assets/Fonts/Itim-Regular.ttf);
-}
-
-:root {
-    --color-background: #13313d;
-    --dark-blue: #1d82ab;
 }
 
 * {
@@ -21,7 +18,7 @@
 }
 
 div.topnav {
-    background-color: #1b546c;
+    background-color: var(--dark-blue);
     overflow: hidden;
 }
 
@@ -31,7 +28,7 @@ ul {
 
 ul.nav li {
     float: left;
-    padding: 10px;
+    padding: 15px;
 }
 
 ul.nav li a {
@@ -42,7 +39,7 @@ ul.nav li a {
 }
 
 ul.nav li:hover {
-    background-color: #1d82ab;
+    background-color: #37addd;
 }
 
 ul.nav li:hover > a {
@@ -50,12 +47,14 @@ ul.nav li:hover > a {
 }
 
 div.fSearch form {
+    display: block;
+    float: left;
     padding-left: 20px;
 }
 
 input {
     padding: 5px 0;
-    margin-top: 5px;
+    margin-top: 11px;
     border: none;
     outline: none;
 }
@@ -68,7 +67,8 @@ input[type="text"] {
     padding-left: 20px;
 }
 
-input[text="text"]:active {
+input[type="button"]:hover {
+    background-color: rgb(124, 124, 124);
 }
 
 input[type="button"] {
@@ -86,22 +86,26 @@ input[type="button"]:active {
 }
 
 .container {
-    height: 1644px;
     background-color: var(--color-background);
     padding-top: 25px;
+    overflow: hidden;
+    padding-bottom: 25px;
 }
 
 .banner {
     width: 94%;
-    height: 18%;
+    height: 295px;
     background-color: var(--dark-blue);
     margin: auto;
+    /* background-image: url("../Assets/Images/banners/banner-avatar.jpg");
+    background-position: center center;
+    background-repeat: no-repeat; */
 }
 
 .left {
     float: left;
     width: 18%;
-    height: 72rem;
+    height: 1295px;
     background-color: #1d82ab;
     margin-top: 25px;
     margin-left: 44px;
@@ -112,15 +116,42 @@ input[type="button"]:active {
     text-align: center;
     padding: 10px 0px;
     outline: medium solid black;
+    background-color: var(--dark-blue);
 }
 
 .content {
     float: right;
     margin-top: 25px;
     margin-right: 44px;
-    background-color: var(--dark-blue);
     width: 74.5%;
-    height: 72rem;
+    height: 1295px;
+    background: url(../Assets/Images/backgrounds/background-Content.jpg)
+        no-repeat center top / cover;
+}
+
+.film {
+    position: relative;
+    display: inline-block;
+    width: 168px;
+    height: 216px;
+    background-color: #13313d;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.posterFilm img {
+    width: 100%;
+    height: 216px;
+}
+
+.titleFilm {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--dark-blue);
+    color: yellow;
+    text-align: center;
 }
 
 footer {

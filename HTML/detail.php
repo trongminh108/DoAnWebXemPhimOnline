@@ -4,8 +4,31 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
+        <title>Detail</title>
+
         <link rel="stylesheet" href="../Style/indexStyle.css" />
+        <link rel="stylesheet" href="../Style/detailStyle.css"/>
+        <?php
+            require_once "../PHP/connect.php";
+            $query = "SELECT * FROM phim";
+            $danhsach = $connect->query($query);
+            require_once "../PHP/connect.php";
+            $maphim = $_GET['id'];
+            $query = "SELECT * FROM phim where maphim='{$maphim}'";
+            $danhsach = $connect->query($query);
+            if (!$danhsach){
+                die("Không thể thực hiện câu lệnh SQL" . $connect->connect_error);
+                exit();
+            }
+            $count = 1;
+            $row = $danhsach->fetch_array(MYSQLI_ASSOC);
+        ?>
+        <style>
+            .hinhAnh{
+                background-image: url("../Assets/Images/posters/<?php echo "{$row['maphim']}" ?>");
+            }
+        </style>
+
     </head>
     <body>
         <header>
@@ -32,12 +55,22 @@
             </div>
         </header>
         <div class="container">
-            <div class="banner"></div>
             <div class="left">
                 <div class="title">Phim đang HOT</div>
             </div>
             <div class="content">
-                <div class="title">Danh sách phim</div>
+                <?php   
+                    echo "<div class='title'>{$row['tenphim']}</div>";
+                ?>
+                <div class="thongTinFilm">
+                    <div class="hinhAnh"></div>
+                    <div class="thongTin"></div>
+                </div>
+
+                <div class="thongTinFilm moTa">
+                    Decription
+                </div>
+
             </div>
         </div>
         <footer>
