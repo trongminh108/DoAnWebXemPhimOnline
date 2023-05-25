@@ -4,6 +4,7 @@
     overflow: hidden;
     background-color: #74abc1;
     margin: auto;
+    position: relative;
     /* background-image: url("../Assets/Images/banners/banner-avatar.jpg");
     background-position: center center;
     background-repeat: no-repeat; */
@@ -34,21 +35,24 @@ label {
 }
 
 .titleNamPhatHanh {
-    float: left;
+    /* float: left; */
     font-size: 25px;
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #optNamPhatHanh {
     margin-left: 20px;
     height: 35px;
     margin-right: 15px;
+    width: 100px;
+    text-align: center;
 }
 
 #optQuocGia {
     margin-left: 20px;
     height: 35px;
+    width: 164px;
 }
 
 .titleQuocGia {
@@ -56,14 +60,12 @@ label {
     margin-top: 20px;
 }
 
-.optQuocGia {
-    float: left;
-}
-
 .LocPhim {
-    height: 40px;
-    width: 100px;
+    position: absolute;
+    padding: 15px 25px;
+    font-size: 20px;
     border-radius: 30px;
     background-color: #37addd;
-    float: right;
+    bottom: 20px;
+    right: 20px;
 }

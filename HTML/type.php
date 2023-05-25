@@ -14,6 +14,8 @@
     <body>
         <header>
             <div class="top">
+				<img src="../Assets/Images/logo/King.png" alt="">
+                THE KING
 			</div>
             <div class="topnav">
                 <ul class="nav">
@@ -25,16 +27,25 @@
                     <li><a href="PhimBo">Phim bộ</a></li>
                 </ul>
                 <div class="fSearch">
-                    <form action="" method="post" class="fSearch">
+                    <form action="search.php" method="post" class="fSearch">
                         <input
                             type="text"
                             class="textSearch"
+							name="textSearch"
                             placeholder="Tên phim..."
                         />
-                        <input type="button" value="Search" />
+                        <input type="submit" value="Search" />
                     </form>
                 </div>
-				<img src = "../Assets/Images/icon/user64.png" alt = "" style = "float: right"/>
+				<div class="thongTinDangNhap">
+                    <a href="DangNhap">
+                        <div class="tenDangNhap">
+                            Đăng nhập
+                        </div>
+                        <div class="hinhAnhDangNhap">
+                        </div>
+                    </a>
+                </div>
             </div>
         </header>
         <div class="container">

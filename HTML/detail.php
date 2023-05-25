@@ -32,7 +32,10 @@
     </head>
     <body>
         <header>
-            <div class="top"></div>
+            <div class="top">
+                <img src="../Assets/Images/logo/King.png" alt="">
+                THE KING
+            </div>
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="index.php">Trang Chủ</a></li>
@@ -43,13 +46,14 @@
                     <li><a href="PhimBo">Phim bộ</a></li>
                 </ul>
                 <div class="fSearch">
-                    <form action="" method="post" class="fSearch">
+                    <form action="search.php" method="post" class="fSearch">
                         <input
                             type="text"
                             class="textSearch"
+                            name="textSearch"
                             placeholder="Tên phim..."
                         />
-                        <input type="button" value="Search" />
+                        <input type="submit" value="Search" />
                     </form>
                 </div>
                 <div class="thongTinDangNhap">

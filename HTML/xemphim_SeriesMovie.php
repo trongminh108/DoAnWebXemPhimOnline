@@ -11,7 +11,10 @@
     </head>
     <body>
         <header>
-            <div class="top"></div>
+            <div class="top">
+                <img src="../Assets/Images/logo/King.png" alt="">
+                THE KING
+            </div>
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="index.php">Trang Chủ</a></li>
@@ -26,6 +29,7 @@
                         <input
                             type="text"
                             class="textSearch"
+                            name="textSearch"
                             placeholder="Tên phim..."
                         />
                         <input type="button" value="Search" />

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
+        <title>Search</title>
 
         <link rel="stylesheet" href="../Style/indexStyle.css" />
         <link rel="stylesheet" href="../Style/paginationStyle.css"> 
@@ -13,7 +13,6 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
         />
-
     </head>
     <body>
         <header>
@@ -153,6 +152,14 @@
                 <div class="title">Danh sách phim</div>
                 <?php
                     require_once "../PHP/connect.php";
+                    $filmName = "##";
+                    if (isset($_GET['filmName'])){
+                        $filmName = $_GET['filmName'];
+                    }
+                    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $filmName = $_POST["textSearch"];
+                    }
+                    echo "<script>alert('{$filmName}')</script>";
                     $limit = 1;//Giới hạn item trên 1 trang
                     $page = 1;
                     if(isset($_GET['page'])){
@@ -163,14 +170,17 @@
                     $firstIndex = ($page-1)*$limit;
                     //Lấy danh sách danh mục từ database
 
-                    $sql = 'select *
-                            from phim
-                            where 1 limit '.$firstIndex.','.$limit;
+                    $sql = "SELECT * 
+                            FROM phim 
+                            WHERE tenphim LIKE '{$filmName}%'
+                            LIMIT " . $firstIndex . ", " . $limit;
                     $danhsach = $connect->query($sql);
                     //Lấy số lượng trang
-                    $sql = 'select count(maphim) as total from phim';
-                    $countResult = $connect->query($sql)->fetch_assoc();
-                    $count = $countResult['total'];
+                    $sql = "SELECT * 
+                            FROM phim 
+                            WHERE tenphim LIKE '{$filmName}%'";
+                    $countResult = $connect->query($sql);
+                    $count = $countResult->num_rows;
                     $totalPage = ceil($count/$limit);
                     foreach($danhsach as $row){
                         $count = 1;
@@ -184,33 +194,13 @@
                         echo "</a>";
                     }
                 ?>
-                <?php
-                    // require_once "../PHP/connect.php";
-                    // $query = "SELECT * FROM phim";
-                    // $danhsach = $connect->query($query);
-                    // if (!$danhsach){
-                    //     die("Không thể thực hiện câu lệnh SQL" . $connect->connect_error);
-                    //     exit();
-                    // }
-                    // $count = 1;
-                    // while($row = $danhsach->fetch_array(MYSQLI_ASSOC)){
-                    //     echo "<a href='detail.php?id={$row['maphim']}'/>";
-                    //         echo "<div class='film {$count}'>";
-                    //             echo "<div class='posterFilm {$count}'>";
-                    //                 echo "<img src='../Assets/Images/posters/{$row['maphim']}.jpg' alt='' />";
-                    //             echo "</div>";
-                    //             echo "<div class='titleFilm {$count}'>{$row['tenphim']}</div>";
-                    //         echo "</div>";
-                    //     echo "</a>";
-                    // }
-                ?>
                 <div class="pagination">
                     <?php
                         if (isset($_GET['page'])){
                             $page = $_GET['page'];
                         }
                         require_once "../PHP/pagination.php";
-                        pagination($totalPage, $page);
+                        paginationSearch($totalPage, $page, $filmName);
                     ?>
                 </div>
             </div>
