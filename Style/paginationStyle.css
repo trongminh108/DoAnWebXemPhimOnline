@@ -1,0 +1,45 @@
+@import url("variable.css");
+
+div.pagination {
+    width: 100%;
+    /* background-color: red; */
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    bottom: 0;
+}
+
+a.page-link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    float: left;
+    padding: 0 10px;
+}
+
+.page-item {
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+li.active button {
+    background-color: aqua;
+}
+
+button.buttonPagination {
+    padding: 0 5px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 5px 10px;
+    background-color: #ccb26b;
+    color: white;
+}
+
+button.buttonPagination:hover {
+    background-color: #8f7d4d;
+}

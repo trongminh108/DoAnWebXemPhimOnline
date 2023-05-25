@@ -36,7 +36,7 @@
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="index.php">Trang Chủ</a></li>
-                    <li><a href="TheLoai">Thể loại</a></li>
+                    <li><a href="type.php">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
                     <li><a href="PhimLe">Phim lẻ</a></li>
@@ -66,6 +66,25 @@
         <div class="container">
             <div class="left">
                 <div class="title">Phim đang HOT</div>
+                <?php
+                    require_once "../PHP/connect.php";
+                    $query = "SELECT * 
+                    FROM phim
+                    WHERE luotxem != 0
+                    ORDER BY luotxem DESC
+                    LIMIT 5";
+                    $dsphimhot = $connect->query($query);
+                    foreach ($dsphimhot as $film){
+                        echo "<div class='filmHot'>
+                            <a href='detail.php?id={$film["maphim"]}' class='linkFilmHot'>
+                                <div class='posterFilmHot'>
+                                    <img src='../Assets/Images/posters/{$film['maphim']}.jpg' alt='' />
+                                    <div class='titleFilmHot'>{$film['tenphim']}</div>
+                                </div>
+                            </a>
+                        </div>";
+                    }
+                ?>
             </div>
             <div class="content">
                 <?php   
@@ -74,6 +93,15 @@
                 <div class="thongTinFilm">
                     <div class="hinhAnh"></div>
                     <div class="thongTin">
+                        <div class="thongTinChiTiet">
+                            <?php
+                                echo "<div>Quốc gia: {$row['quocgia']} </div>
+                                <div>Năm phát hành: {$row['namphathanh']} </div>
+                                <div>Thể loại: {$row['theloai']} </div>
+                                <div>Lượt xem: {$row['luotxem']}</div>"
+                            ?>
+                        </div>
+                        
                         <?php
                             echo "<a class='xemPhim' href='xemphim_OddMovie.php?id={$row['maphim']}'>Xem phim</a>";
                         ?>
@@ -81,7 +109,12 @@
                 </div>
 
                 <div class="thongTinFilm moTa">
-                    Decription
+                    <b>Mô tả</b>    
+                    <div class="moTa" style="text-align: justify;">
+                        <?php
+                            echo "&nbsp;&nbsp;&nbsp;&nbsp;" . $row['mota'];
+                        ?>
+                    </div>
                 </div>
 
             </div>

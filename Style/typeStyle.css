@@ -1,0 +1,69 @@
+.type {
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    background-color: #74abc1;
+    margin: auto;
+    /* background-image: url("../Assets/Images/banners/banner-avatar.jpg");
+    background-position: center center;
+    background-repeat: no-repeat; */
+}
+
+.TheLoai {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.TheLoai tr {
+    margin-bottom: 10px;
+}
+
+.TheLoai td {
+    padding: 10px;
+}
+table input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.titleNamPhatHanh {
+    float: left;
+    font-size: 25px;
+    display: flex;
+    margin-top: 20px;
+}
+
+#optNamPhatHanh {
+    margin-left: 20px;
+    height: 35px;
+    margin-right: 15px;
+}
+
+#optQuocGia {
+    margin-left: 20px;
+    height: 35px;
+}
+
+.titleQuocGia {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.optQuocGia {
+    float: left;
+}
+
+.LocPhim {
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: #37addd;
+    float: right;
+}

@@ -15,7 +15,7 @@
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="index.php">Trang Chủ</a></li>
-                    <li><a href="TheLoai">Thể loại</a></li>
+                    <li><a href="type.php">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
                     <li><a href="PhimLe">Phim lẻ</a></li>
@@ -46,6 +46,25 @@
 			
             <div class="left">
                 <div class="title">Phim đang HOT</div>
+                <?php
+                    require_once "../PHP/connect.php";
+                    $query = "SELECT * 
+                    FROM phim
+                    WHERE luotxem != 0
+                    ORDER BY luotxem DESC
+                    LIMIT 5";
+                    $dsphimhot = $connect->query($query);
+                    foreach ($dsphimhot as $film){
+                        echo "<div class='filmHot'>
+                            <a href='detail.php?id={$film["maphim"]}' class='linkFilmHot'>
+                                <div class='posterFilmHot'>
+                                    <img src='../Assets/Images/posters/{$film['maphim']}.jpg' alt='' />
+                                    <div class='titleFilmHot'>{$film['tenphim']}</div>
+                                </div>
+                            </a>
+                        </div>";
+                    }
+                ?>
             </div>
 			
             <div class="content">

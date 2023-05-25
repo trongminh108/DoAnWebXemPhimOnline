@@ -37,6 +37,7 @@ a.xemPhim {
     right: 15px;
     color: black;
     padding: 10px 20px;
+    font-size: 30px;
     border-radius: 30px;
     background-color: var(--dark-blue);
     text-decoration: none;
@@ -44,6 +45,10 @@ a.xemPhim {
 
 .moTa {
     box-sizing: border-box;
-    height: 150px;
     padding: 10px;
+}
+
+.thongTinChiTiet div {
+    font-size: 30px;
+    margin: 20px;
 }

@@ -7,6 +7,13 @@
         <title>Home</title>
 
         <link rel="stylesheet" href="../Style/indexStyle.css" />
+        <link rel="stylesheet" href="../Style/paginationStyle.css"> 
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+        />
+
     </head>
     <body>
         <header>
@@ -14,7 +21,7 @@
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="index.php">Trang Chủ</a></li>
-                    <li><a href="TheLoai">Thể loại</a></li>
+                    <li><a href="type.php">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
                     <li><a href="PhimLe">Phim lẻ</a></li>
@@ -42,23 +49,127 @@
             </div>
         </header>
         <div class="container">
-            <div class="banner"></div>
+            <div class="banner">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"
+                            style="background-image: url('../Assets/Images/banners/banner-avatar.jpg');"
+                        >
+                        </div>
+                        <div class="swiper-slide"
+                            style="background-image: url('../Assets/Images/banners/banner-avengers.jpeg');"
+                        >
+                        </div>
+                        <div class="swiper-slide"
+                            style="background-image: url('../Assets/Images/banners/banner-doraemon.jpg');"
+                        >
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <style>
+                    .swiper {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .swiper-slide {
+                        width: 100%;
+                        height: 100%;
+                        background-size: cover;
+                    }
+
+                    .banner {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .swiper .swiper-button-prev, .swiper-button-next {
+                        color: white;
+                    }
+
+                    .swiper .swiper-pagination-bullet-active{
+                        background-color: white;
+                    }
+
+
+                </style>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+                <script>
+                    const swiper = new Swiper('.swiper', {
+                        autoplay:{
+                            delay: 3000,
+                            disableOnInteration: false,
+                        },
+                        loop: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        }
+                    });
+                </script>
+            </div>
             <div class="left">
                 <div class="title">Phim đang HOT</div>
+                <?php
+                    require_once "../PHP/connect.php";
+                    $query = "SELECT * 
+                    FROM phim
+                    WHERE luotxem != 0
+                    ORDER BY luotxem DESC
+                    LIMIT 5";
+                    $dsphimhot = $connect->query($query);
+                    foreach ($dsphimhot as $film){
+                        echo "<div class='filmHot'>
+                            <a href='detail.php?id={$film["maphim"]}' class='linkFilmHot'>
+                                <div class='posterFilmHot'>
+                                    <img src='../Assets/Images/posters/{$film['maphim']}.jpg' alt='' />
+                                    <div class='titleFilmHot'>{$film['tenphim']}</div>
+                                </div>
+                            </a>
+                        </div>";
+                    }
+                ?>
             </div>
+            
             <div class="content">
                 <div class="title">Danh sách phim</div>
                 <?php
                     require_once "../PHP/connect.php";
-                    $query = "SELECT * FROM phim";
-                    $danhsach = $connect->query($query);
-                    if (!$danhsach){
-                        die("Không thể thực hiện câu lệnh SQL" . $connect->connect_error);
-                        exit();
+                    $limit = 1;//Giới hạn item trên 1 trang
+                    $page = 1;
+                    if(isset($_GET['page'])){
+                        $page = $_GET['page'];
                     }
-                    $count = 1;
-                    while($row = $danhsach->fetch_array(MYSQLI_ASSOC)){
-                        $url = "../Assets/Images/posters/3-idiots.jpg";
+                    if($page<=0)
+                        $page=1;
+                    $firstIndex = ($page-1)*$limit;
+                    //Lấy danh sách danh mục từ database
+
+                    $sql = 'select *
+                            from phim
+                            where 1 limit '.$firstIndex.','.$limit;
+                    $danhsach = $connect->query($sql);
+                    //Lấy số lượng trang
+                    $sql = 'select count(maphim) as total from phim';
+                    $countResult = $connect->query($sql)->fetch_assoc();
+                    $count = $countResult['total'];
+                    $totalPage = ceil($count/$limit);
+                    foreach($danhsach as $row){
+                        $count = 1;
                         echo "<a href='detail.php?id={$row['maphim']}'/>";
                             echo "<div class='film {$count}'>";
                                 echo "<div class='posterFilm {$count}'>";
@@ -69,8 +180,37 @@
                         echo "</a>";
                     }
                 ?>
-                
+                <?php
+                    // require_once "../PHP/connect.php";
+                    // $query = "SELECT * FROM phim";
+                    // $danhsach = $connect->query($query);
+                    // if (!$danhsach){
+                    //     die("Không thể thực hiện câu lệnh SQL" . $connect->connect_error);
+                    //     exit();
+                    // }
+                    // $count = 1;
+                    // while($row = $danhsach->fetch_array(MYSQLI_ASSOC)){
+                    //     echo "<a href='detail.php?id={$row['maphim']}'/>";
+                    //         echo "<div class='film {$count}'>";
+                    //             echo "<div class='posterFilm {$count}'>";
+                    //                 echo "<img src='../Assets/Images/posters/{$row['maphim']}.jpg' alt='' />";
+                    //             echo "</div>";
+                    //             echo "<div class='titleFilm {$count}'>{$row['tenphim']}</div>";
+                    //         echo "</div>";
+                    //     echo "</a>";
+                    // }
+                ?>
+                <div class="pagination">
+                    <?php
+                        if (isset($_GET['page'])){
+                            $page = $_GET['page'];
+                        }
+                        require_once "../PHP/pagination.php";
+                        pagination($totalPage, $page);
+                    ?>
+                </div>
             </div>
+        </div>
             
         </div>
         <footer>
