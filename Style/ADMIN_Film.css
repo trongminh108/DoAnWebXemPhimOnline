@@ -1,0 +1,88 @@
+.btnDangXuat {
+    padding: 10px;
+    background-color: #c260ab;
+}
+
+.btnThem {
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}
+
+.btnThem:hover {
+    background-color: #c260ab;
+}
+
+.btnXoa {
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+}
+
+.btnXoa:hover {
+    background-color: #c260ab;
+}
+
+.btnSua {
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+}
+
+.btnSua:hover {
+    background-color: #c260ab;
+}
+
+.titleCapNhat {
+    font-size: 50px;
+    margin: auto;
+    text-align: center;
+    color: #c260ab;
+}
+
+div.container div.fSearch {
+    height: auto;
+    overflow: hidden;
+    margin: auto !important;
+}
+
+.table_manager {
+    border-collapse: collapse; /* Gộp các đường viền của các ô thành một đường viền duy nhất */
+    width: 95%; /* Đặt chiều rộng của bảng là 100% của khối chứa */
+    margin: auto;
+    background-color: aliceblue;
+}
+
+tr.header {
+    background-color: #83b1fb;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.table_manager td {
+    border: 1px solid #ddd; /* Đặt đường viền cho các ô */
+    padding: 8px; /* Đặt khoảng cách giữa nội dung trong ô và đường viền */
+    text-align: left; /* Canh trái nội dung trong ô */
+    font-size: 14px;
+    text-align: center;
+}
+
+.table_manager td.dataFilm {
+    text-align: left;
+}
+
+td.description {
+    text-align: justify;
+}

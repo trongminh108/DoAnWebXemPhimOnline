@@ -1,0 +1,61 @@
+.btnDangXuat {
+    padding: 10px;
+    background-color: #c260ab;
+}
+
+.CapNhatPhim {
+    font-size: 70px;
+    color: #83b1fb;
+    text-align: center;
+}
+
+.tableCapNhatPhim {
+    margin: auto;
+}
+
+label {
+    font-size: 25px;
+    color: #83b1fb;
+    margin: 30px;
+}
+
+#l_ID {
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.btnDangPhim {
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 750px;
+    border-radius: 50px;
+    background-color: #83b1fb;
+}
+
+.btnDangPhim:hover {
+    background-color: #c260ab;
+}
+
+td input,
+textarea {
+    max-width: 500px;
+    min-width: 500px;
+    margin-right: 25px;
+}
+td textarea {
+    max-height: 100px;
+    color: #000000;
+    padding-left: 10px;
+}
+
+table {
+    margin-top: 10px !important;
+    padding: 25px 0px;
+    background-image: linear-gradient(90deg, #93397e, #4477c9);
+    border-radius: 50px;
+}
+
+td input {
+    width: 500px;
+    padding-left: 10px;
+}

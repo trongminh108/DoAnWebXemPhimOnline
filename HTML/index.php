@@ -13,6 +13,9 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
         />
+        <?php
+            require_once "../PHP/connect.php";
+        ?>
 
     </head>
     <body>
@@ -27,8 +30,8 @@
                     <li><a href="type.php">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
-                    <li><a href="PhimLe">Phim lẻ</a></li>
-                    <li><a href="PhimBo">Phim bộ</a></li>
+                    <li><a href="ADMIN_Film.php">Quản lý phim</a></li>
+                    <li><a href="ADMIN_User.php">Quản lý user</a></li>
                 </ul>
                 <div class="fSearch">
                     <form action="search.php" method="post" class="fSearch">
@@ -42,9 +45,35 @@
                     </form>
                 </div>
                 <div class="thongTinDangNhap">
-                    <a href="DangNhap">
+                    <a href="login.php">
                         <div class="tenDangNhap">
-                            Đăng nhập
+                        <?php	
+                            session_start();
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 1)//Admin
+                            {
+                                echo "<a href='logout.php' class='dangNhapXuat'>Admin {$_SESSION['name']}</a>";
+                            }
+                            else if(isset($_SESSION['role']) && $_SESSION['role'] == 0)//User
+                            {
+                                echo "<a href='logout.php' class='dangNhapXuat'>{$_SESSION['name']}</a>";
+                                echo "<style>
+                                        li a[href='ADMIN_Film.php'], a[href='ADMIN_User.php'] {
+                                            display: none;
+                                            visible: hidden;
+                                        }
+                                    </style>";
+                            }
+                            else //chưa đăng nhập
+                            {
+                                echo "Đăng nhập";
+                                echo "<style>
+                                        li a[href='ADMIN_Film.php'], a[href='ADMIN_User.php'] {
+                                            display: none;
+                                            visible: hidden;
+                                        }
+                                    </style>";
+                            }		
+                        ?>	
                         </div>
                         <div class="hinhAnhDangNhap">
                         </div>
@@ -129,7 +158,6 @@
             <div class="left">
                 <div class="title">Phim đang HOT</div>
                 <?php
-                    require_once "../PHP/connect.php";
                     $query = "SELECT * 
                     FROM phim
                     WHERE luotxem != 0
@@ -152,7 +180,7 @@
             <div class="content">
                 <div class="title">Danh sách phim</div>
                 <?php
-                    require_once "../PHP/connect.php";
+                    // require_once "../PHP/connect.php";
                     $limit = 1;//Giới hạn item trên 1 trang
                     $page = 1;
                     if(isset($_GET['page'])){
@@ -165,7 +193,8 @@
 
                     $sql = 'select *
                             from phim
-                            where 1 limit '.$firstIndex.','.$limit;
+                            where 1 ORDER BY tenphim ASC
+                            limit '.$firstIndex.','.$limit;
                     $danhsach = $connect->query($sql);
                     //Lấy số lượng trang
                     $sql = 'select count(maphim) as total from phim';

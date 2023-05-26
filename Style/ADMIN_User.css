@@ -1,0 +1,149 @@
+.btnDangXuat
+{
+    padding: 10px;
+    background-color: #c260ab;
+}
+
+.btnThem
+{
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 10px;
+    float:right;
+}
+
+.btnThem:hover
+{
+    background-color: #c260ab;
+}
+
+.btnXoa
+{
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 20px;
+    float:right;
+}
+
+.btnXoa:hover
+{
+    background-color: #c260ab;
+}
+
+.btnSua
+{
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    background-color: #83b1fb;
+    margin-top: 10px;
+    margin-right: 20px;
+    float:right;
+}
+
+.btnSua:hover
+{
+    background-color: #c260ab;
+}
+
+.titleCapNhat
+{
+    font-size: 50px;
+    margin: auto;
+    text-align: center;
+    color: #c260ab;
+}
+
+div.container div.fSearch {
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+}
+
+.full_manage {
+    width: 100%;
+    background-color: var(--color-background);
+    margin: auto;
+    margin-top: 18.5px;
+    margin-bottom: 18.5px;
+}
+
+.body_manage
+{
+    margin-top: 100px;
+    margin:auto;
+    width: 90%;
+    height: 1000px;
+    background-color: rgb(0, 183, 255);
+}
+
+.header_ID
+{
+    width: auto;
+    height: 40px;
+    background-color: #3c70c5;
+}
+
+.table_manager 
+{
+    border-collapse: collapse; /* Gộp các đường viền của các ô thành một đường viền duy nhất */
+    width: 100%; /* Đặt chiều rộng của bảng là 100% của khối chứa */
+}
+  
+.table_manager th 
+{
+    background-color: #ddd; /* Đặt màu nền cho hàng tiêu đề */
+}
+  
+.table_manager td, .table_manager th 
+{
+    border: 1px solid #ddd; /* Đặt đường viền cho các ô */
+    padding: 8px; /* Đặt khoảng cách giữa nội dung trong ô và đường viền */
+    text-align: left; /* Canh trái nội dung trong ô */
+}
+  
+.table_manager tr:nth-child(even) 
+{
+    background-color: #f2f2f2; /* Đặt màu nền cho các hàng chẵn */
+}
+  
+.table_manager td a 
+{
+    color: blue; /* Đặt màu cho liên kết trong ô */
+    text-decoration: none; /* Loại bỏ đường gạch chân của liên kết */
+}
+
+.table_manager1 
+{
+    border-collapse: collapse; /* Gộp các đường viền của các ô thành một đường viền duy nhất */
+    width: 100%; /* Đặt chiều rộng của bảng là 100% của khối chứa */
+}
+  
+.table_manager1 th 
+{
+    background-color: #ddd; /* Đặt màu nền cho hàng tiêu đề */
+}
+  
+.table_manager1 td, .table_manager1 th 
+{
+    border: 1px solid #ddd; /* Đặt đường viền cho các ô */
+    padding: 8px; /* Đặt khoảng cách giữa nội dung trong ô và đường viền */
+    text-align: left; /* Canh trái nội dung trong ô */
+}
+  
+.table_manager1 tr:nth-child(even) 
+{
+    background-color: #f2f2f2; /* Đặt màu nền cho các hàng chẵn */
+}
+  
+.table_manager1 td a 
+{
+    color: blue; /* Đặt màu cho liên kết trong ô */
+    text-decoration: none; /* Loại bỏ đường gạch chân của liên kết */
+}

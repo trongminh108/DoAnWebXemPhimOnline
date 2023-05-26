@@ -64,7 +64,6 @@ ul.nav li:hover > a {
 div.fSearch form {
     display: block;
     float: left;
-    padding-left: 20px;
 }
 
 input {
@@ -76,10 +75,10 @@ input {
 
 form.fSearch input[type="text"] {
     width: 200px;
-    margin-left: 20px;
+    margin-left: 10px;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 form.fSearch input[type="submit"]:hover {
@@ -113,6 +112,14 @@ form.fSearch input[type="submit"]:active {
     font-weight: bold;
 }
 
+.tenDangNhap:hover * {
+    color: yellow;
+}
+
+.tenDangNhap:hover {
+    color: yellow;
+}
+
 .thongTinDangNhap > a {
     text-decoration: none;
     color: black;
@@ -132,6 +139,16 @@ form.fSearch input[type="submit"]:active {
     background: url("../Assets/Images/icon/user64.png") no-repeat center center /
         100% auto;
 }
+
+.dangNhapXuat {
+    text-decoration: none;
+    color: black;
+}
+
+.dangNhapXuat:hover {
+    color: yellow;
+}
+
 /* -------------------------------------------------Container----------------------------------------------------- */
 
 .container {

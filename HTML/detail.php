@@ -42,8 +42,8 @@
                     <li><a href="type.php">Thể loại</a></li>
                     <li><a href="NamPhatHanh">Năm phát hành</a></li>
                     <li><a href="QuocGia">Quốc gia</a></li>
-                    <li><a href="PhimLe">Phim lẻ</a></li>
-                    <li><a href="PhimBo">Phim bộ</a></li>
+                    <li><a href="ADMIN_Film.php">Quản lý phim</a></li>
+                    <li><a href="ADMIN_User.php">Quản lý user</a></li>
                 </ul>
                 <div class="fSearch">
                     <form action="search.php" method="post" class="fSearch">
@@ -57,9 +57,23 @@
                     </form>
                 </div>
                 <div class="thongTinDangNhap">
-                    <a href="DangNhap">
+                    <a href="login.php">
                         <div class="tenDangNhap">
-                            Đăng nhập
+                        <?php	
+                            session_start();
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 1)//Admin
+                            {
+                                echo "<a href='logout.php' class='dangNhapXuat'>Admin {$_SESSION['name']}</a>";
+                            }
+                            else if(isset($_SESSION['role']) && $_SESSION['role'] == 0)//User
+                            {
+                                echo "<a href='logout.php' class='dangNhapXuat'>{$_SESSION['name']}</a>";
+                            }
+                            else //chưa đăng nhập
+                            {
+                                echo "Đăng nhập";
+                            }		
+                        ?>	
                         </div>
                         <div class="hinhAnhDangNhap">
                         </div>
