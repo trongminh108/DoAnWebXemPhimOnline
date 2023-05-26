@@ -181,7 +181,7 @@
                 <div class="title">Danh sách phim</div>
                 <?php
                     // require_once "../PHP/connect.php";
-                    $limit = 1;//Giới hạn item trên 1 trang
+                    $limit = 3;//Giới hạn item trên 1 trang
                     $page = 1;
                     if(isset($_GET['page'])){
                         $page = $_GET['page'];

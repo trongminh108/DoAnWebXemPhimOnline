@@ -13,13 +13,14 @@
         <header>
             <div class="top">
                 <a href="index.php">
-                    <input type = "button" value = "Đăng xuất" class = "btnDangXuat"/>
+                    <input type = "button" value = "Trang chủ" class = "btnDangXuat"/>
                 </a>
             </div>
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="ADMIN_ThemPhim.php">Thêm phim</a></li>
                     <li><a href="ADMIN_Film.php">Quản lý phim</a></li>
+                    <li><a href="ADMIN_ThemUser">Thêm User</a></li>
                     <li><a href="ADMIN_User.php">Quản lý người dùng</a></li>
                 </ul>
 
@@ -35,11 +36,6 @@
                     </form>
                 </div>
 
-                <div>
-                    <input type="button" value="Thêm" class = "btnThem"/>
-                    <input type="button" value="Xóa" class = "btnXoa"/>
-                    <input type="button" value="Sửa" class = "btnSua"/>
-                </div>
             </div>
         </header>
         <div class="container">

@@ -13,13 +13,14 @@
         <header>
             <div class="top">
                 <a href="index.php">
-                    <input type = "button" value = "Đăng xuất" class = "btnDangXuat"/>
+                    <input type = "button" value = "Trang chủ" class = "btnDangXuat"/>
                 </a>
             </div>
             <div class="topnav">
                 <ul class="nav">
                     <li><a href="ADMIN_ThemPhim.php">Thêm phim</a></li>
                     <li><a href="ADMIN_Film.php">Quản lý phim</a></li>
+                    <li><a href="ADMIN_ThemUser">Thêm User</a></li>
                     <li><a href="ADMIN_User.php">Quản lý người dùng</a></li>
                 </ul>
             </div>
@@ -140,14 +141,16 @@
                     </tr>
                 </table> 
                 <button type="submit" class="btnDangPhim" id="button_post" name="button_post">
+                    <?php
+                        if (isset($_GET['id'])){
+                            echo "Cập nhật phim";
+                            echo "<input type='text' name='isUpdate' value='{$_GET['id']}' style='display: none;'/>";
+                        }
+                        else
+                            echo "Đăng phim";
+                    ?>
+                </button>  
             </form>
-                <?php
-                    if (isset($_GET['id']))
-                        echo "Cập nhật phim";
-                    else
-                        echo "Đăng phim";
-                ?>
-            </button>
 
         </div>
     </body>

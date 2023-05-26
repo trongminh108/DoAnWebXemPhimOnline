@@ -182,7 +182,7 @@ form.fSearch input[type="submit"]:active {
     text-align: center;
     padding: 10px 0px;
     outline: medium solid black;
-    background-color: var(--dark-blue);
+    background-color: #a8368e;
 }
 
 /* -------------------------------------------------FilmHot----------------------------------------------------- */

@@ -10,7 +10,7 @@
 		header("location: ADMIN_Film.php");
 	}
 	else{
-		echo "Xóa khách hàng không thành công <br/>" . $connect->error;
+		echo "Xóa phim không thành công <br/>" . $connect->error;
 	}
 	$connect->close();
 ?>

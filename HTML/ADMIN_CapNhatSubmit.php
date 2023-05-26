@@ -11,17 +11,9 @@
 
         require_once "../PHP/connect.php";
 
-        if ($_FILES["poster"]["error"])
-            echo "Lỗi: " . $_FILES["poster"]["error"] . "<br/>";
-        else{
-            // if (file_exists("upload/" .$_FILES["poster"]["name"])){
-            //     echo $_FILES["poster"]["name"] . " đã tồn tại!";
-            // }
-            // else{
-                move_uploaded_file($_FILES["poster"]["tmp_name"], "../Assets/Images/posters/" . $_POST['txtID'] . ".jpg");
-                echo "Địa chỉ file đã upload: ../Assets/Images/posters/" . $_FILES["poster"]["name"];
-            // }
-        }
+        if (!$_FILES["poster"]["error"])
+            move_uploaded_file($_FILES["poster"]["tmp_name"], "../Assets/Images/posters/" . $_POST['txtID'] . ".jpg");
+
         $maphim = $_POST['txtID'];
         $tenphim = $_POST['txtTenPhim'];
         $nam = $_POST['txtNamPhatHanh'];
@@ -30,17 +22,25 @@
         $dienvien = $_POST['txtDienVien'];
         $mota = $_POST['txtMoTa'];
         $link = $_POST['txtLink'];
-        $query = "INSERT INTO phim(maphim, tenphim, namphathanh, theloai, quocgia, dienvien, mota, link) 
+        if (isset($_POST['isUpdate'])){
+            $id = $_POST['isUpdate'];
+            $query = "UPDATE phim SET maphim='$maphim', tenphim='$tenphim', namphathanh='$nam',
+                theloai='$theloai', quocgia='$quocgia', dienvien='$dienvien', mota='$mota', link='$link'
+                WHERE maphim='$id'";
+        }
+        else{
+            $query = "INSERT INTO phim(maphim, tenphim, namphathanh, theloai, quocgia, dienvien, mota, link) 
             VALUES ('$maphim', '$tenphim', '$nam', '$theloai',
             '$quocgia', '$dienvien', '$mota', '$link')";
-    
-		if ($connect->query($query)){
-			echo "<script>alert('Đã thêm phim!')</script>";
+        }
+
+        if ($connect->query($query)){
             header('Location: ADMIN_ThemPhim.php');
-		}
-		else{
-			echo "Lỗi: " . $sql . "<br/>" . $connect->error;
-		}
+        }
+        else{
+            echo "Lỗi: " . $sql . "<br/>" . $connect->error;
+        }
+
     ?>
 </body>
 </html>
